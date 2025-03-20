@@ -13,7 +13,7 @@ public abstract class BaseTest {
     protected static final Logger LOG = LoggerFactory.getLogger(BaseTest.class);
     protected static final String ORDER_ENDPOINT = Constants.STORE_ORDER_ENDPOINT;
     protected static final String INVENTORY_ENDPOINT = Constants.STORE_INVENTORY_ENDPOINT;
-    public static final int DEFAULT_ORDER_ID = 8;
+    public static final int DEFAULT_ORDER_ID = 74;
     protected ApiUtils apiUtils = new ApiUtils();
 
     @BeforeSuite
@@ -25,7 +25,7 @@ public abstract class BaseTest {
     protected Order createDefaultOrder() {
         return new Order(
                 DEFAULT_ORDER_ID,
-                1,
+                6,
                 2,
                 "2025-03-18T10:00:00.000Z",
                 "placed",

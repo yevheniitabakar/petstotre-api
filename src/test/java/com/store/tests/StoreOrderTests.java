@@ -30,7 +30,7 @@ public class StoreOrderTests extends BaseTest {
         apiUtils.sendPostRequest(ORDER_ENDPOINT, createOrderBuilder);
 
         RequestBuilder requestBuilder = RequestBuilder.builder()
-                .pathParam("8")
+                .pathParam("74")
                 .build();
         Response response = apiUtils.sendGetRequest(ORDER_ENDPOINT, requestBuilder);
 
@@ -47,7 +47,7 @@ public class StoreOrderTests extends BaseTest {
         apiUtils.sendPostRequest(ORDER_ENDPOINT, createOrderBuilder);
 
         RequestBuilder requestBuilder = RequestBuilder.builder()
-                .pathParam("8")
+                .pathParam("74")
                 .build();
         Response response = apiUtils.sendDeleteRequest(ORDER_ENDPOINT, requestBuilder);
 

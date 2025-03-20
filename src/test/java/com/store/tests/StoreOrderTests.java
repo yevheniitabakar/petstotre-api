@@ -18,18 +18,24 @@ public class StoreOrderTests extends BaseTest {
         Response response = apiUtils.sendPostRequest(ORDER_ENDPOINT, requestBuilder);
 
         Assert.assertEquals(response.getStatusCode(), 200, "Order should be placed successfully");
-        Assert.assertEquals(response.jsonPath().getLong("id"), 1);
+        Assert.assertEquals(response.jsonPath().getLong("id"), DEFAULT_ORDER_ID);
     }
 
     @Test(description = "Test getting order by ID", groups = {"smoke", "regression"})
     public void testGetOrderById() {
+        Order order = createDefaultOrder();
+        RequestBuilder createOrderBuilder = RequestBuilder.builder()
+                .body(order)
+                .build();
+        apiUtils.sendPostRequest(ORDER_ENDPOINT, createOrderBuilder);
+
         RequestBuilder requestBuilder = RequestBuilder.builder()
-                .pathParam("1")
+                .pathParam("8")
                 .build();
         Response response = apiUtils.sendGetRequest(ORDER_ENDPOINT, requestBuilder);
 
         Assert.assertEquals(response.getStatusCode(), 200, "Order should be retrieved successfully");
-        Assert.assertEquals(response.jsonPath().getInt("id"), 1);
+        Assert.assertEquals(response.jsonPath().getInt("id"), DEFAULT_ORDER_ID);
     }
 
     @Test(description = "Test deleting order", groups = {"smoke", "regression"})
@@ -41,7 +47,7 @@ public class StoreOrderTests extends BaseTest {
         apiUtils.sendPostRequest(ORDER_ENDPOINT, createOrderBuilder);
 
         RequestBuilder requestBuilder = RequestBuilder.builder()
-                .pathParam("1")
+                .pathParam("8")
                 .build();
         Response response = apiUtils.sendDeleteRequest(ORDER_ENDPOINT, requestBuilder);
 

@@ -58,4 +58,4 @@ To run all tests and generate an HTML report, use the following command:
 TestNG generates an HTML report after each test run.
 Reports are saved in the report/ directory with a timestamped folder (e.g., report/2025-03-19_10-30-45/index.html).
 ### Note:
-This project interacts with a test environment that may sometimes exhibit unexpected behavior, resulting in intermittent or flaky test failures.
+This project interacts with a public test environment that may sometimes exhibit unexpected behavior, resulting in intermittent or flaky test failures.

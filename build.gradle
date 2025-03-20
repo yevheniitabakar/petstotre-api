@@ -1,0 +1,40 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.store'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.projectlombok:lombok:1.18.34'
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+    compileOnly 'org.projectlombok:lombok:1.18.34'
+
+    testImplementation('org.projectlombok:lombok:1.18.34')
+    testAnnotationProcessor('org.projectlombok:lombok:1.18.34')
+    testCompileOnly('org.projectlombok:lombok:1.18.34')
+
+    testImplementation 'org.testng:testng:7.7.0'
+    testImplementation 'io.rest-assured:rest-assured:5.4.0'
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    implementation 'org.slf4j:slf4j-simple:2.0.9'
+
+    implementation 'com.google.code.gson:gson:2.10.1'
+}
+
+test {
+    useTestNG() {
+        useDefaultListeners = true
+        listeners << 'com.store.utils.ApiTestListener'
+        def timestamp = new Date().format("yyyy-MM-dd_HH-mm-ss")
+        outputDirectory = file("$projectDir/report/$timestamp")
+    }
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true
+    }
+}

@@ -38,10 +38,10 @@ petstore-api/
 │       │       │   ├── StoreInventoryTests.java
 │       │       │   └── StoreOrderTests.java
 │       │       └── utils/                          # Utility classes
-│       │           ├── ApiTestListener.java
-│       │           ├── ApiUtils.java
-│       │           ├── Logable.java
-│       │           └── RequestBuilder.java
+│       │           ├── ApiTestListener.java        # TestNG listener that logs test lifecycle events
+│       │           ├── ApiUtils.java               # Provides methods for sending GET, POST, and DELETE requests
+│       │           ├── Logable.java                # An interface that defines a contract for logging API call details
+│       │           └── RequestBuilder.java         # Builder class for constructing RestAssured request specifications
 │       └── resources/                              # Resources for tests
 ├── .gitignore                                      # Git ignore file
 ├── build.gradle                                    # Gradle build configuration
